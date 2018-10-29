@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+service Users {
+    rpc SendMessage (stream UserNote) returns (stream Warning) {}
+    rpc StreamMessages (User) returns (stream Chat) {}
+    rpc CreateUser (NewUserRequest) returns (RegistrationResponse) {}
+    rpc GetOnlineUsers (Empty) returns (stream AllOnlineUsers) {}
+    rpc ConnectWithUser (OneOnOneChat) returns (RegistrationResponse) {}
+    rpc CheckRequest (User) returns (User) {}
+}
+
+message UserNote {
+    string username = 1;
+    Chat message = 2;
+}
+
+message Chat {
+    string sender = 1;
+    Content content = 2;
+}
+
+message Content {
+    bytes nonce = 1;
+    bytes tag = 2;
+    bytes ciphertext = 3;
+}
+
+message User {
+    string username = 1;
+}
+
+message Empty {}
+
+
+message NewUserRequest {
+    string user = 1;
+}
+
+message RegistrationResponse {
+    bool isAvailable = 1;
+}
+
+message AllOnlineUsers {
+    User users = 1;
+}
+
+message OneOnOneChat {
+    User user1 = 1;
+    User user2 = 2;
+}
+
+message Warning {
+    string warning_message = 1;
+}
+
+// To create pb2 files
+// python3 -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/*.proto

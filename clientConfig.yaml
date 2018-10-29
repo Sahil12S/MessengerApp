@@ -1,0 +1,8 @@
+# Spartan Server ip
+ip: '127.0.0.1'
+
+# Spartan Server Port
+port: 3000
+
+# Key file
+key: "key.bin"
