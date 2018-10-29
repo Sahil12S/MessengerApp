@@ -1,18 +1,16 @@
 # **_SPARTAN MESSENGER_**
-Create a messenger application that allows Clients to talk to each other.
 
-## Requirements
-Use __Python3__ and __gRPC__ for the project.
+A messenger application built in Python3 using gRPC for communications.
 
-### Project Level 1
-[x] One on one conversation between users.  
-[x] Implement LRU Cache to store recent messages.  
-[x] Limit number of messages a user can send to an API withing a time window.  
 
-### Project Level 2
-[ ] Provide end-to-end message encryption using AES fron PyCrypto library.  
-[ ] Add Python Decorator for LRU Cache.  
-[ ] Add Python Decorator for Rate Limitation.  
+## Features
+- One to one chat between clients.
+- Messages pass through server to destination client.
+- LRU Cache to store recent messages.
+- Auto-clear cache after a specified time.
+- Rate Limit on number of messages that a client can send in a given time.
+- AES encryption using _PyCryptodome_ library for end-to-end encryption.
 
-### Project Level 3
-[ ] Provide Group Chat functionality.  
+
+### Upcoming
+- Group chat functionality.
